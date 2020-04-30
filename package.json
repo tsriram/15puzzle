@@ -1,10 +1,15 @@
 {
-  "name": "svelte-app",
+  "name": "15puzzle-ui-svelte",
   "version": "1.0.0",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public"
+  },
+  "author": {
+    "name": "Sriram Thiagarajan",
+    "email": "sri.sjc@gmail.com",
+    "url": "https://twitter.com/tsriram"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "11.0.2",
