@@ -21,6 +21,7 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
+    "lodash.shuffle": "^4.2.0",
     "sirv-cli": "^0.4.4"
   }
 }

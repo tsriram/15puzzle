@@ -1,5 +1,6 @@
 <script>
   import GitHubCorner from "./GitHubCorner.svelte";
+  import shuffle from "lodash.shuffle";
   import { flip } from "svelte/animate";
 
   // no fancy puzzle generation yet
@@ -7,6 +8,10 @@
   const empty = -1;
   let emptyCellIndex = puzzle.indexOf(empty);
   const rows = 4;
+
+  function shufflePuzzle() {
+    puzzle = shuffle(puzzle);
+  }
 
   const canMove = (index, emptyCellIndex) => {
     return (
@@ -36,7 +41,8 @@
   .container {
     margin: 2rem auto;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   .puzzle {
@@ -70,6 +76,10 @@
   .no-move {
     cursor: not-allowed;
   }
+
+  .shuffle-btn {
+    margin-top: 24px;
+  }
 </style>
 
 <main class="container">
@@ -77,13 +87,14 @@
     {#each puzzle as cellValue, index (cellValue)}
       <div
         animate:flip={{ duration: 300 }}
-        class:cell={index !== emptyCellIndex}
-        class:empty-cell={index === emptyCellIndex}
+        class:cell={cellValue !== empty}
+        class:empty-cell={cellValue === empty}
         class:no-move={!canMove(index, emptyCellIndex)}
         on:click={() => handleMove(index)}>
-        {cellValue}
+        {cellValue === empty ? '' : cellValue}
       </div>
     {/each}
   </div>
   <GitHubCorner />
+  <button class="shuffle-btn" on:click={shufflePuzzle}>Shuffle</button>
 </main>
