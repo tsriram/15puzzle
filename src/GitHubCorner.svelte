@@ -28,7 +28,7 @@
 </style>
 
 <a
-  href="https://github.com/tsriram/15puzzle-ui-svelte"
+  href="https://github.com/tsriram/15puzzle"
   class="github-corner"
   aria-label="View source on GitHub">
   <svg
