@@ -79,6 +79,8 @@
 
   .shuffle-btn {
     margin-top: 24px;
+    padding: 8px 12px;
+    line-height: 1.5;
   }
 </style>
 
