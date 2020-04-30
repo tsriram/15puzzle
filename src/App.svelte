@@ -1,4 +1,5 @@
 <script>
+  import GitHubCorner from "./GitHubCorner.svelte";
   import { flip } from "svelte/animate";
 
   // no fancy puzzle generation yet
@@ -84,4 +85,5 @@
       </div>
     {/each}
   </div>
+  <GitHubCorner />
 </main>
