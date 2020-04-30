@@ -8,9 +8,11 @@
   const empty = -1;
   let emptyCellIndex = puzzle.indexOf(empty);
   const rows = 4;
+  let moves = 0;
 
   function shufflePuzzle() {
     puzzle = shuffle(puzzle);
+    moves = 0;
   }
 
   const canMove = (index, emptyCellIndex) => {
@@ -33,6 +35,7 @@
       }
       return number;
     });
+    moves++;
     emptyCellIndex = puzzle.indexOf(empty);
   };
 </script>
@@ -43,6 +46,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 416px;
   }
 
   .puzzle {
@@ -81,10 +85,29 @@
     margin-top: 24px;
     padding: 8px 12px;
     line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  .game-info {
+    display: flex;
+    padding: 16px 0;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    align-self: flex-start;
+  }
+
+  .game-info .label {
+    margin-right: 12px;
   }
 </style>
 
 <main class="container">
+  <div class="game-info">
+    <div class="moves">
+      <span class="label">Moves</span>
+      <span>{moves}</span>
+    </div>
+  </div>
   <div class="puzzle">
     {#each puzzle as cellValue, index (cellValue)}
       <div
@@ -98,5 +121,5 @@
     {/each}
   </div>
   <GitHubCorner />
-  <button class="shuffle-btn" on:click={shufflePuzzle}>Shuffle</button>
+  <button class="shuffle-btn" on:click={shufflePuzzle}>New Game</button>
 </main>
