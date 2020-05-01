@@ -1,19 +1,17 @@
 <script>
   import GitHubCorner from "./GitHubCorner.svelte";
+  import { getPuzzle, EMPTY } from "./game";
   import { flip } from "svelte/animate";
-  import shuffle from "lodash.shuffle";
 
-  // no fancy puzzle generation yet
-  let puzzle = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, -1];
-  const empty = -1;
-  let emptyCellIndex = puzzle.indexOf(empty);
+  let puzzle = getPuzzle();
+  let emptyCellIndex = puzzle.indexOf(EMPTY);
   const rows = 4;
   let moves = 0;
 
-  function shufflePuzzle() {
-    puzzle = shuffle(puzzle);
+  function restart() {
+    puzzle = getPuzzle();
     moves = 0;
-    emptyCellIndex = puzzle.indexOf(empty);
+    emptyCellIndex = puzzle.indexOf(EMPTY);
   }
 
   const canMove = (index, emptyCellIndex) => {
@@ -37,7 +35,7 @@
       return number;
     });
     moves++;
-    emptyCellIndex = puzzle.indexOf(empty);
+    emptyCellIndex = puzzle.indexOf(EMPTY);
   };
 </script>
 
@@ -113,14 +111,14 @@
     {#each puzzle as cellValue, index (cellValue)}
       <div
         animate:flip={{ duration: 300 }}
-        class:cell={cellValue !== empty}
-        class:empty-cell={cellValue === empty}
+        class:cell={cellValue !== EMPTY}
+        class:empty-cell={cellValue === EMPTY}
         class:no-move={!canMove(index, emptyCellIndex)}
         on:click={() => handleMove(index)}>
-        {cellValue === empty ? '' : cellValue}
+        {cellValue === EMPTY ? '' : cellValue}
       </div>
     {/each}
   </div>
   <GitHubCorner />
-  <button class="shuffle-btn" on:click={shufflePuzzle}>New Game</button>
+  <button class="shuffle-btn" on:click={restart}>New Game</button>
 </main>
