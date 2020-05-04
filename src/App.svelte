@@ -110,7 +110,7 @@
   <div class="puzzle">
     {#each puzzle as cellValue, index (cellValue)}
       <div
-        animate:flip={{ duration: 300 }}
+        animate:flip={{ duration: 100 }}
         class:cell={cellValue !== EMPTY}
         class:empty-cell={cellValue === EMPTY}
         class:no-move={!canMove(index, emptyCellIndex)}
