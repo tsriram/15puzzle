@@ -1,4 +1,6 @@
+import { puzzle, moves, time } from "./stores.js";
 import shuffle from "lodash.shuffle";
+import { get } from "svelte/store";
 
 export const EMPTY = -1;
 const ROWS = 4;
@@ -53,6 +55,45 @@ export function getPuzzle() {
   } else {
     return puzzle;
   }
+}
+
+export function startNewGame() {
+  puzzle.set(getPuzzle());
+  moves.set(0);
+  time.set(0);
+  startTimer();
+}
+
+function startTimer() {
+  setInterval(() => {
+    time.update((time) => time + 1);
+  }, 1000);
+}
+
+export function canMove(index, emptyCellIndex) {
+  const rows = 4;
+  return (
+    Math.abs(index - emptyCellIndex) === 1 ||
+    Math.abs(index - emptyCellIndex) === rows
+  );
+}
+
+export function handleMove(indexToMove, emptyCellIndex) {
+  if (!canMove(indexToMove, emptyCellIndex)) {
+    return;
+  }
+  const currentPuzzle = get(puzzle);
+  const numberToMove = currentPuzzle[indexToMove];
+  const updatedPuzzle = currentPuzzle.map((number, index) => {
+    if (index === indexToMove) {
+      return -1;
+    } else if (number === -1) {
+      return numberToMove;
+    }
+    return number;
+  });
+  puzzle.set(updatedPuzzle);
+  moves.update((moves) => moves + 1);
 }
 
 // https://www.cs.bham.ac.uk/~mdr/teaching/modules04/java2/TilesSolvability.html
