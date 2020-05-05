@@ -11,7 +11,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 416px;
+    padding: 20px;
   }
 
   .new-game-btn {
