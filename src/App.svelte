@@ -1,6 +1,7 @@
 <script>
+  import { startNewGame, pauseGame, resumeGame } from "./game.js";
   import GitHubCorner from "./GitHubCorner.svelte";
-  import { startNewGame } from "./game.js";
+  import { paused } from "./stores.js";
   import Puzzle from "./Puzzle.svelte";
 </script>
 
@@ -25,4 +26,9 @@
   <Puzzle />
   <GitHubCorner />
   <button class="new-game-btn" on:click={startNewGame}>New Game</button>
+  {#if $paused}
+    <button class="pause-game-btn" on:click={resumeGame}>Resume</button>
+  {:else}
+    <button class="pause-game-btn" on:click={pauseGame}>Pause</button>
+  {/if}
 </main>

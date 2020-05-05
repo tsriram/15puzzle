@@ -4,7 +4,8 @@
     moves,
     minutesString,
     secondsString,
-    emptyCellIndex
+    emptyCellIndex,
+    paused
   } from "./stores.js";
   import { handleMove, canMove, EMPTY, startNewGame } from "./game.js";
   import { flip } from "svelte/animate";

@@ -1,4 +1,4 @@
-import { puzzle, moves, time } from "./stores.js";
+import { puzzle, moves, time, paused } from "./stores.js";
 import shuffle from "lodash.shuffle";
 import { get } from "svelte/store";
 
@@ -6,6 +6,7 @@ export const EMPTY = -1;
 const ROWS = 4;
 const COLUMNS = 4;
 const SOLVED_STATE = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, -1];
+let timer;
 
 // temp
 const SOLVABLE_PUZZLE1 = [
@@ -65,9 +66,19 @@ export function startNewGame() {
 }
 
 function startTimer() {
-  setInterval(() => {
+  timer = setInterval(() => {
     time.update((time) => time + 1);
   }, 1000);
+}
+
+export function pauseGame() {
+  clearInterval(timer);
+  paused.set(true);
+}
+
+export function resumeGame() {
+  startTimer();
+  paused.set(false);
 }
 
 export function canMove(index, emptyCellIndex) {
