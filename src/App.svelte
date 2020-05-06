@@ -25,7 +25,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 30px;
-    width: 100%;
+    max-width: 416px;
   }
 </style>
 
