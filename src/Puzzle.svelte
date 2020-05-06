@@ -7,13 +7,25 @@
     emptyCellIndex,
     paused
   } from "./stores.js";
-  import { handleMove, canMove, EMPTY, startNewGame } from "./game.js";
+  import {
+    handleMove,
+    canMove,
+    EMPTY,
+    startNewGame,
+    resumeGame
+  } from "./game.js";
   import { flip } from "svelte/animate";
   import { onMount } from "svelte";
 
   onMount(() => {
     startNewGame();
   });
+
+  function handleResumeGame() {
+    if ($paused) {
+      resumeGame();
+    }
+  }
 </script>
 
 <style>
@@ -25,12 +37,44 @@
 
   .puzzle {
     display: grid;
+    position: relative;
     grid-template: repeat(4, 1fr) / repeat(4, 1fr);
     border: 5px solid purple;
     padding: 2px;
     grid-gap: 2px;
     width: 100%;
     box-sizing: border-box;
+  }
+
+  .puzzle.paused::before {
+    background: rgba(0, 0, 0, 0.5);
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+
+  .paused-text {
+    position: absolute;
+    display: none;
+    color: white;
+  }
+
+  .puzzle.paused .paused-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    justify-self: center;
+    font-size: 3rem;
+    text-transform: uppercase;
+  }
+
+  .hint {
+    font-size: 1rem;
+    text-transform: none;
   }
 
   .cell,
@@ -89,7 +133,7 @@
       <span>{`${$minutesString}:${$secondsString}`}</span>
     </div>
   </div>
-  <div class="puzzle">
+  <div class="puzzle" class:paused={$paused} on:click={handleResumeGame}>
     {#each $puzzle as cellValue, index (cellValue)}
       <div
         animate:flip={{ duration: 120 }}
@@ -100,5 +144,9 @@
         {cellValue === EMPTY ? '' : cellValue}
       </div>
     {/each}
+    <div class="paused-text">
+      <div>Paused</div>
+      <div class="hint">Click to resume</div>
+    </div>
   </div>
 </div>

@@ -90,6 +90,10 @@ export function canMove(index, emptyCellIndex) {
 }
 
 export function handleMove(indexToMove, emptyCellIndex) {
+  const isPaused = get(paused);
+  if (isPaused) {
+    return;
+  }
   if (!canMove(indexToMove, emptyCellIndex)) {
     return;
   }
