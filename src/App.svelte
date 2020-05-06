@@ -14,21 +14,30 @@
     padding: 20px;
   }
 
-  .new-game-btn {
+  .btn {
     margin-top: 24px;
     padding: 8px 12px;
     line-height: 1.5;
     text-transform: uppercase;
+  }
+
+  .actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+    width: 100%;
   }
 </style>
 
 <main class="container">
   <Puzzle />
   <GitHubCorner />
-  <button class="new-game-btn" on:click={startNewGame}>New Game</button>
-  {#if $paused}
-    <button class="pause-game-btn" on:click={resumeGame}>Resume</button>
-  {:else}
-    <button class="pause-game-btn" on:click={pauseGame}>Pause</button>
-  {/if}
+  <div class="actions">
+    <button class="btn" on:click={startNewGame}>New Game</button>
+    {#if $paused}
+      <button class="btn" on:click={resumeGame}>Resume</button>
+    {:else}
+      <button class="btn" on:click={pauseGame}>Pause</button>
+    {/if}
+  </div>
 </main>
