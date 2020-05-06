@@ -1,4 +1,4 @@
-import { puzzle, moves, time, paused } from "./stores.js";
+import { puzzle, moves, time, paused, emptyCellIndex } from "./stores.js";
 import shuffle from "lodash.shuffle";
 import { get } from "svelte/store";
 
@@ -81,20 +81,20 @@ export function resumeGame() {
   paused.set(false);
 }
 
-export function canMove(index, emptyCellIndex) {
+export function canMove(index) {
   const rows = 4;
+  const emptyCell = get(emptyCellIndex);
   return (
-    Math.abs(index - emptyCellIndex) === 1 ||
-    Math.abs(index - emptyCellIndex) === rows
+    Math.abs(index - emptyCell) === 1 || Math.abs(index - emptyCell) === rows
   );
 }
 
-export function handleMove(indexToMove, emptyCellIndex) {
+export function handleMove(indexToMove) {
   const isPaused = get(paused);
   if (isPaused) {
     return;
   }
-  if (!canMove(indexToMove, emptyCellIndex)) {
+  if (!canMove(indexToMove)) {
     return;
   }
   const currentPuzzle = get(puzzle);

@@ -4,7 +4,6 @@
     moves,
     minutesString,
     secondsString,
-    emptyCellIndex,
     paused
   } from "./stores.js";
   import {
@@ -139,8 +138,8 @@
         animate:flip={{ duration: 120 }}
         class:cell={cellValue !== EMPTY}
         class:empty-cell={cellValue === EMPTY}
-        class:no-move={!canMove(index, $emptyCellIndex)}
-        on:click={() => handleMove(index, $emptyCellIndex)}>
+        class:no-move={!canMove(index)}
+        on:click={() => handleMove(index)}>
         {cellValue === EMPTY ? '' : cellValue}
       </div>
     {/each}
