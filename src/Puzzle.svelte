@@ -13,6 +13,7 @@
     startNewGame,
     resumeGame
   } from "./game.js";
+  import PuzzleActions from "./PuzzleActions.svelte";
   import { flip } from "svelte/animate";
   import { onMount } from "svelte";
 
@@ -148,4 +149,5 @@
       <div class="hint">Click to resume</div>
     </div>
   </div>
+  <PuzzleActions />
 </div>
