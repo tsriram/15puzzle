@@ -15,6 +15,7 @@
   } from "./game.js";
   import KeyboardHandler from "./KeyboardHandler.svelte";
   import PuzzleActions from "./PuzzleActions.svelte";
+  import TouchHandler from "./TouchHandler.svelte";
   import { flip } from "svelte/animate";
   import { onMount } from "svelte";
 
@@ -152,4 +153,5 @@
   </div>
   <PuzzleActions />
   <KeyboardHandler />
+  <TouchHandler />
 </div>
