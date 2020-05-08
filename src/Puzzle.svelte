@@ -13,6 +13,7 @@
     startNewGame,
     resumeGame
   } from "./game.js";
+  import KeyboardHandler from "./KeyboardHandler.svelte";
   import PuzzleActions from "./PuzzleActions.svelte";
   import { flip } from "svelte/animate";
   import { onMount } from "svelte";
@@ -150,4 +151,5 @@
     </div>
   </div>
   <PuzzleActions />
+  <KeyboardHandler />
 </div>
