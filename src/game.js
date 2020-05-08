@@ -3,8 +3,8 @@ import shuffle from "lodash.shuffle";
 import { get } from "svelte/store";
 
 export const EMPTY = -1;
-const ROWS = 4;
-const COLUMNS = 4;
+export const ROWS = 4;
+export const COLUMNS = 4;
 const SOLVED_STATE = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, -1];
 let timer;
 
@@ -81,11 +81,33 @@ export function resumeGame() {
   paused.set(false);
 }
 
+function canMoveLeft(index, emptyCellIndex, colNumber) {
+  return index - 1 === emptyCellIndex && colNumber !== 1;
+}
+
+function canMoveRight(index, emptyCellIndex, colNumber) {
+  return index + 1 === emptyCellIndex && colNumber !== COLUMNS;
+}
+
+function canMoveUp(index, emptyCellIndex, rowNumber) {
+  return index - COLUMNS === emptyCellIndex && rowNumber !== 1;
+}
+
+function canMoveDown(index, emptyCellIndex, rowNumber) {
+  return index + COLUMNS === emptyCellIndex && rowNumber !== ROWS;
+}
+
 export function canMove(index) {
-  const rows = 4;
   const emptyCell = get(emptyCellIndex);
+  const cellNumber = index + 1;
+  const rowNumber = Math.ceil(cellNumber / COLUMNS);
+  const colNumber = cellNumber - (rowNumber - 1) * COLUMNS;
+
   return (
-    Math.abs(index - emptyCell) === 1 || Math.abs(index - emptyCell) === rows
+    canMoveLeft(index, emptyCell, colNumber) ||
+    canMoveRight(index, emptyCell, colNumber) ||
+    canMoveUp(index, emptyCell, rowNumber) ||
+    canMoveDown(index, emptyCell, rowNumber)
   );
 }
 
