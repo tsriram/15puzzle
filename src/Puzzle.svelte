@@ -41,7 +41,7 @@
     display: grid;
     position: relative;
     grid-template: repeat(4, 1fr) / repeat(4, 1fr);
-    border: 5px solid purple;
+    border: 4px solid var(--grid-border-color);
     padding: 2px;
     grid-gap: 2px;
     width: 100%;
@@ -82,11 +82,11 @@
   .cell,
   .empty-cell {
     display: inline-flex;
-    background-color: cadetblue;
+    background-color: var(--cell-bg-color);
     align-items: center;
     justify-content: center;
     font-size: 2rem;
-    color: white;
+    color: var(--cell-text-color);
     cursor: pointer;
     width: 100%;
   }

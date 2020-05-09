@@ -5,8 +5,20 @@ body {
   height: 100%;
 }
 
+html {
+  --bg-color: #f0ebd8;
+  --text-color: #1b2836;
+  --grid-border-color: #655e56;
+  --cell-bg-color: #c2bcad;
+  --cell-text-color: #1b2836;
+  --button-bg-color: #c2bcad;
+  --button-text-color: #1b2836;
+}
+
 body {
-  color: #333;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 500ms;
   margin: 0;
   padding: 8px;
   box-sizing: border-box;

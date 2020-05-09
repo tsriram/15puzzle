@@ -1,4 +1,5 @@
 <script>
+  import ThemeSelector from "./ThemeSelector.svelte";
   import Puzzle from "./Puzzle.svelte";
 </script>
 
@@ -15,3 +16,4 @@
 <main class="container">
   <Puzzle />
 </main>
+<ThemeSelector />
