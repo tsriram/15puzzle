@@ -1,5 +1,4 @@
 <script>
-  import GitHubCorner from "./GitHubCorner.svelte";
   import Puzzle from "./Puzzle.svelte";
 </script>
 
@@ -15,5 +14,4 @@
 
 <main class="container">
   <Puzzle />
-  <GitHubCorner />
 </main>
