@@ -13,6 +13,7 @@
     startNewGame,
     resumeGame
   } from "./game.js";
+  import VisibilityHandler from "./VisibilityHandler.svelte";
   import KeyboardHandler from "./KeyboardHandler.svelte";
   import PuzzleActions from "./PuzzleActions.svelte";
   import TouchHandler from "./TouchHandler.svelte";
@@ -154,4 +155,5 @@
   <PuzzleActions />
   <KeyboardHandler />
   <TouchHandler />
+  <VisibilityHandler />
 </div>
