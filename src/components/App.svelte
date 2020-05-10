@@ -1,4 +1,5 @@
 <script>
+  import ServiceWorker from "./ServiceWorker.svelte";
   import ThemeSelector from "./ThemeSelector.svelte";
   import Puzzle from "./Puzzle.svelte";
 </script>
@@ -17,3 +18,4 @@
   <Puzzle />
 </main>
 <ThemeSelector />
+<ServiceWorker />

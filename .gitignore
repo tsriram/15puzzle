@@ -2,3 +2,7 @@
 /public/build/
 
 .DS_Store
+
+
+/public/sw.*
+/public/workbox*
