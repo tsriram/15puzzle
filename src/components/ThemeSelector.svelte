@@ -1,10 +1,44 @@
 <script>
+  import { getItem, setItem } from "../utils/storage";
   import LightMode from "./LightMode.svelte";
   import DarkMode from "./DarkMode.svelte";
-  import { darkMode } from "../stores";
+  import { theme } from "../stores";
+  import { onMount } from "svelte";
+
+  const THEME_KEY = "theme";
+
+  onMount(() => {
+    setInitialTheme();
+  });
+
+  function getInitialTheme() {
+    const themeFromStorage = getItem(THEME_KEY);
+    if (themeFromStorage) {
+      return themeFromStorage;
+    }
+
+    const systemDarkTheme = window.matchMedia("(prefers-color-scheme: dark)");
+    const hasSystemThemePreference =
+      typeof systemDarkTheme.matches === "boolean";
+    if (hasSystemThemePreference) {
+      return systemDarkTheme.matches ? "dark" : "light";
+    }
+
+    return "dark";
+  }
+
+  // TODO: Fix the initial flicker when default theme doesn't match with user selected theme.
+  function setInitialTheme() {
+    const initialTheme = getInitialTheme();
+    theme.update(() => initialTheme);
+  }
 
   function toggleTheme() {
-    darkMode.update(darkMode => !darkMode);
+    theme.update(theme => {
+      const updatedTheme = theme === "dark" ? "light" : "dark";
+      setItem(THEME_KEY, updatedTheme);
+      return updatedTheme;
+    });
   }
 </script>
 
@@ -23,12 +57,12 @@
   }
 </style>
 
-{#if $darkMode}
+{#if $theme === 'dark'}
   <DarkMode />
 {:else}
   <LightMode />
 {/if}
 
 <button class="btn-toggle-theme" on:click={toggleTheme} title="Toggle theme">
-  {#if $darkMode}🔆{:else}🌚{/if}
+  {#if $theme === 'dark'}🔆{:else}🌚{/if}
 </button>
