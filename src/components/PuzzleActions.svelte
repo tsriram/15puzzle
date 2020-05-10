@@ -1,6 +1,6 @@
 <script>
-  import { startNewGame, pauseGame, resumeGame } from "./game.js";
-  import { paused } from "./stores.js";
+  import { startNewGame, pauseGame, resumeGame } from "../game";
+  import { paused } from "../stores";
 </script>
 
 <style>

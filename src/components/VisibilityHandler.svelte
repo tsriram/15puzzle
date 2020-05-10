@@ -1,5 +1,5 @@
 <script>
-  import { pauseGame } from "./game.js";
+  import { pauseGame } from "../game";
   function handleVisibilityChange() {
     if (document.hidden) {
       pauseGame();

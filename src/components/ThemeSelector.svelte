@@ -1,7 +1,7 @@
 <script>
   import LightMode from "./LightMode.svelte";
   import DarkMode from "./DarkMode.svelte";
-  import { darkMode } from "./stores.js";
+  import { darkMode } from "../stores";
 
   function toggleTheme() {
     darkMode.update(darkMode => !darkMode);

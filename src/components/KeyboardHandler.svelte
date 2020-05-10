@@ -1,6 +1,6 @@
 <script>
-  import { handleMove, COLUMNS } from "./game.js";
-  import { emptyCellIndex } from "./stores.js";
+  import { handleMove, COLUMNS } from "../game";
+  import { emptyCellIndex } from "../stores";
 
   function handleKeydown(event) {
     const key = event.key;

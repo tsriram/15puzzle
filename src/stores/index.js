@@ -1,5 +1,5 @@
 import { writable, derived } from "svelte/store";
-import { EMPTY } from "./game.js";
+import { EMPTY } from "../game";
 
 export const paused = writable(false);
 export const moves = writable(0);

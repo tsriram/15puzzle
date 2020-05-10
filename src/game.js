@@ -1,4 +1,4 @@
-import { puzzle, moves, time, paused, emptyCellIndex } from "./stores.js";
+import { puzzle, moves, time, paused, emptyCellIndex } from "./stores";
 import shuffle from "lodash.shuffle";
 import { get } from "svelte/store";
 

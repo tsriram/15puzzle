@@ -5,14 +5,14 @@
     minutesString,
     secondsString,
     paused
-  } from "./stores.js";
+  } from "../stores";
   import {
     handleMove,
     canMove,
     EMPTY,
     startNewGame,
     resumeGame
-  } from "./game.js";
+  } from "../game";
   import VisibilityHandler from "./VisibilityHandler.svelte";
   import KeyboardHandler from "./KeyboardHandler.svelte";
   import PuzzleActions from "./PuzzleActions.svelte";
