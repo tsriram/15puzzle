@@ -20,3 +20,14 @@ export const secondsString = derived(time, ($time) => {
   const seconds = $time % 60;
   return String(seconds).padStart(2, "0");
 });
+
+export const isSolved = derived(puzzle, ($puzzle) => {
+  let solved = true;
+  for (let i = 1; i <= $puzzle.length; i++) {
+    if ($puzzle[i] !== i) {
+      solved = false;
+      break;
+    }
+  }
+  return solved;
+});
