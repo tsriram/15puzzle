@@ -1,4 +1,5 @@
 import { puzzle, moves, time, paused, emptyCellIndex } from "./stores";
+import { dbGet, dbSet } from "./utils/db";
 import shuffle from "lodash.shuffle";
 import { get } from "svelte/store";
 
@@ -7,6 +8,7 @@ export const ROWS = 4;
 export const COLUMNS = 4;
 const SOLVED_STATE = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, -1];
 let timer;
+let dbSaveTimer;
 
 // temp
 const SOLVABLE_PUZZLE1 = [
@@ -58,11 +60,34 @@ export function getPuzzle() {
   }
 }
 
-export function startNewGame() {
+export async function initGame() {
+  const existingGame = await dbGet("game");
+  if (existingGame) {
+    puzzle.set(existingGame.puzzle);
+    moves.set(existingGame.moves);
+    time.set(existingGame.time);
+    pauseGame();
+    return true;
+  }
+  return false;
+}
+
+function clearGameInDB() {
+  dbSet("game", undefined);
+}
+
+function startSaveToDBTimer() {
+  dbSaveTimer = setInterval(saveGameToDB, 30 * 1000);
+}
+
+export async function startNewGame() {
   puzzle.set(getPuzzle());
   moves.set(0);
   time.set(0);
+  resumeGame();
+  clearGameInDB();
   startTimer();
+  startSaveToDBTimer();
 }
 
 function startTimer() {
@@ -73,6 +98,7 @@ function startTimer() {
 
 export function pauseGame() {
   clearInterval(timer);
+  clearInterval(dbSaveTimer);
   paused.set(true);
 }
 
@@ -111,6 +137,16 @@ export function canMove(index) {
   );
 }
 
+function saveGameToDB() {
+  const game = {
+    puzzle: get(puzzle),
+    moves: get(moves),
+    time: get(time)
+  };
+
+  dbSet("game", { ...game });
+}
+
 export function handleMove(indexToMove) {
   const isPaused = get(paused);
   if (isPaused) {
@@ -131,6 +167,7 @@ export function handleMove(indexToMove) {
   });
   puzzle.set(updatedPuzzle);
   moves.update((moves) => moves + 1);
+  saveGameToDB();
 }
 
 // https://www.cs.bham.ac.uk/~mdr/teaching/modules04/java2/TilesSolvability.html

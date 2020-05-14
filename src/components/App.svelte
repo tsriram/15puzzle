@@ -1,7 +1,7 @@
 <script>
   import ServiceWorker from "./ServiceWorker.svelte";
   import ThemeSelector from "./ThemeSelector.svelte";
-  import Puzzle from "./Puzzle.svelte";
+  import PuzzleHome from "./PuzzleHome.svelte";
 </script>
 
 <style>
@@ -15,7 +15,7 @@
 </style>
 
 <main class="container">
-  <Puzzle />
+  <PuzzleHome />
 </main>
 <ThemeSelector />
-<ServiceWorker />
+<!-- <ServiceWorker /> -->

@@ -10,6 +10,7 @@
     handleMove,
     canMove,
     EMPTY,
+    initGame,
     startNewGame,
     resumeGame
   } from "../game";
@@ -17,12 +18,8 @@
   import KeyboardHandler from "./KeyboardHandler.svelte";
   import PuzzleActions from "./PuzzleActions.svelte";
   import TouchHandler from "./TouchHandler.svelte";
+  import { scale } from "svelte/transition";
   import { flip } from "svelte/animate";
-  import { onMount } from "svelte";
-
-  onMount(() => {
-    startNewGame();
-  });
 
   function handleResumeGame() {
     if ($paused) {
@@ -125,7 +122,9 @@
   }
 </style>
 
-<div class="puzzle-container">
+<div
+  class="puzzle-container"
+  in:scale={{ duration: 300, opacity: 0.5, start: 0.5 }}>
   <div class="game-info">
     <div class="moves">
       <span class="label">Moves</span>
@@ -153,6 +152,7 @@
     </div>
   </div>
   <PuzzleActions />
+
   <KeyboardHandler />
   <TouchHandler />
   <VisibilityHandler />
