@@ -84,7 +84,6 @@ export async function startNewGame() {
   puzzle.set(getPuzzle());
   moves.set(0);
   time.set(0);
-  resumeGame();
   clearGameInDB();
   startTimer();
   startSaveToDBTimer();
@@ -92,7 +91,9 @@ export async function startNewGame() {
 
 function startTimer() {
   timer = setInterval(() => {
-    time.update((time) => time + 1);
+    time.update((time) => {
+      return time + 1;
+    });
   }, 1000);
 }
 
@@ -104,6 +105,7 @@ export function pauseGame() {
 
 export function resumeGame() {
   startTimer();
+  startSaveToDBTimer();
   paused.set(false);
 }
 
