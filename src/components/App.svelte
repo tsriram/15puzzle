@@ -18,4 +18,4 @@
   <PuzzleHome />
 </main>
 <ThemeSelector />
-<!-- <ServiceWorker /> -->
+<ServiceWorker />
