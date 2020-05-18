@@ -85,8 +85,7 @@ export async function startNewGame() {
   moves.set(0);
   time.set(0);
   clearGameInDB();
-  startTimer();
-  startSaveToDBTimer();
+  resumeGame();
 }
 
 function startTimer() {
@@ -130,6 +129,14 @@ export function canMove(index) {
   const cellNumber = index + 1;
   const rowNumber = Math.ceil(cellNumber / COLUMNS);
   const colNumber = cellNumber - (rowNumber - 1) * COLUMNS;
+
+  if (rowNumber < 1 || rowNumber > ROWS) {
+    return false;
+  }
+
+  if (colNumber < 1 || colNumber > COLUMNS) {
+    return false;
+  }
 
   return (
     canMoveLeft(index, emptyCell, colNumber) ||
