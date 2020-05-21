@@ -16,6 +16,7 @@
   } from "../game";
   import VisibilityHandler from "./VisibilityHandler.svelte";
   import KeyboardHandler from "./KeyboardHandler.svelte";
+  import PuzzleComplete from "./PuzzleComplete.svelte";
   import PuzzleActions from "./PuzzleActions.svelte";
   import TouchHandler from "./TouchHandler.svelte";
   import { scale } from "svelte/transition";
@@ -156,4 +157,5 @@
   <KeyboardHandler />
   <TouchHandler />
   <VisibilityHandler />
+  <PuzzleComplete />
 </div>

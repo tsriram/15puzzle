@@ -1,4 +1,11 @@
-import { puzzle, moves, time, paused, emptyCellIndex } from "./stores";
+import {
+  puzzle,
+  moves,
+  time,
+  paused,
+  emptyCellIndex,
+  isSolved
+} from "./stores";
 import { dbGet, dbSet } from "./utils/db";
 import shuffle from "lodash.shuffle";
 import { get } from "svelte/store";
@@ -72,10 +79,6 @@ export async function initGame() {
   return false;
 }
 
-function clearGameInDB() {
-  dbSet("game", undefined);
-}
-
 function startSaveToDBTimer() {
   dbSaveTimer = setInterval(saveGameToDB, 30 * 1000);
 }
@@ -84,7 +87,7 @@ export async function startNewGame() {
   puzzle.set(getPuzzle());
   moves.set(0);
   time.set(0);
-  clearGameInDB();
+  saveGameToDB();
   resumeGame();
 }
 
@@ -96,9 +99,18 @@ function startTimer() {
   }, 1000);
 }
 
-export function pauseGame() {
+export function completeGame() {
+  clearTimers();
+  clearGameFromDB();
+}
+
+function clearTimers() {
   clearInterval(timer);
   clearInterval(dbSaveTimer);
+}
+
+export function pauseGame() {
+  clearTimers();
   paused.set(true);
 }
 
@@ -146,6 +158,10 @@ export function canMove(index) {
   );
 }
 
+function clearGameFromDB() {
+  dbSet("game", undefined);
+}
+
 function saveGameToDB() {
   const game = {
     puzzle: get(puzzle),
@@ -177,6 +193,9 @@ export function handleMove(indexToMove) {
   puzzle.set(updatedPuzzle);
   moves.update((moves) => moves + 1);
   saveGameToDB();
+  if (isPuzzleSolved(updatedPuzzle)) {
+    isSolved.set(true);
+  }
 }
 
 // https://www.cs.bham.ac.uk/~mdr/teaching/modules04/java2/TilesSolvability.html
@@ -193,4 +212,13 @@ function isPuzzleSolvable(puzzle) {
   } else {
     return inversionCount % 2 === 0;
   }
+}
+
+function isPuzzleSolved(puzzle) {
+  for (let i = 0; i < puzzle.length - 1; i++) {
+    if (puzzle[i] !== i + 1) {
+      return false;
+    }
+  }
+  return true;
 }
