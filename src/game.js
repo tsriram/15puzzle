@@ -202,9 +202,11 @@ export function handleMove(indexToMove) {
 // our grid width is even (for now)
 function isPuzzleSolvable(puzzle) {
   const emptyCellIndex = puzzle.indexOf(EMPTY);
+  console.log("emptyCellIndex: ", emptyCellIndex);
   const inversionCount = getInversionCount(puzzle);
+  console.log("inversionCount: ", inversionCount);
   const blankCellRowFromBottom = Math.ceil(
-    (puzzle.length - emptyCellIndex + 1) / COLUMNS
+    (puzzle.length - (emptyCellIndex + 1)) / COLUMNS
   );
   if (blankCellRowFromBottom % 2 === 0) {
     // blank cell on even row from bottom
