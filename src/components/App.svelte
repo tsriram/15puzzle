@@ -1,4 +1,5 @@
 <script>
+  import GoogleAnalytics from "./GoogleAnalytics.svelte";
   import ServiceWorker from "./ServiceWorker.svelte";
   import ThemeSelector from "./ThemeSelector.svelte";
   import PuzzleHome from "./PuzzleHome.svelte";
@@ -19,3 +20,4 @@
 </main>
 <ThemeSelector />
 <ServiceWorker />
+<GoogleAnalytics />
