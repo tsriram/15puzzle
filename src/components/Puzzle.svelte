@@ -139,7 +139,7 @@
   <div class="puzzle" class:paused={$paused} on:click={handleResumeGame}>
     {#each $puzzle as cellValue, index (cellValue)}
       <div
-        animate:flip={{ duration: 120 }}
+        animate:flip={{ duration: 60 }}
         class:cell={cellValue !== EMPTY}
         class:empty-cell={cellValue === EMPTY}
         class:no-move={!canMove(index)}
