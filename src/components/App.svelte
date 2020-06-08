@@ -3,6 +3,7 @@
   import ServiceWorker from "./ServiceWorker.svelte";
   import ThemeSelector from "./ThemeSelector.svelte";
   import PuzzleHome from "./PuzzleHome.svelte";
+  import Logo from "./Logo.svelte";
 </script>
 
 <style>
@@ -16,6 +17,7 @@
 </style>
 
 <main class="container">
+  <Logo />
   <PuzzleHome />
 </main>
 <ThemeSelector />
