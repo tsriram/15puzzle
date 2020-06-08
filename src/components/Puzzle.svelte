@@ -31,7 +31,7 @@
 
 <style>
   .puzzle-container {
-    max-width: 416px;
+    max-width: var(--max-width);
     display: grid;
     width: 100%;
   }
