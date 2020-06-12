@@ -1,6 +1,7 @@
 <style>
   .logo {
     max-width: var(--max-width);
+    margin-bottom: 1rem;
   }
 </style>
 
