@@ -1,0 +1,22 @@
+<style>
+  footer {
+    text-align: center;
+    color: var(--text-color);
+    font-size: 1rem;
+  }
+  div {
+    padding: 1rem;
+  }
+</style>
+
+<footer>
+  <div>
+    Built by
+    <a target="_blank" href="https://twitter.com/tsriram">Sriram</a>
+    <span>|</span>
+    <a target="_blank" href="https://github.com/tsriram/15puzzle/issues/new">
+      Found an issue?
+    </a>
+  </div>
+  <div />
+</footer>
