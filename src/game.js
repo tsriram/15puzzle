@@ -6,6 +6,7 @@ import {
   emptyCellIndex,
   isSolved
 } from "./stores";
+import { trackNewGame, trackSolvedPuzzle } from "./utils/analytics";
 import { dbGet, dbSet } from "./utils/db";
 import shuffle from "lodash.shuffle";
 import { get } from "svelte/store";
@@ -84,6 +85,7 @@ function startSaveToDBTimer() {
 }
 
 export async function startNewGame() {
+  trackNewGame();
   puzzle.set(getPuzzle());
   moves.set(0);
   time.set(0);
@@ -194,6 +196,7 @@ export function handleMove(indexToMove) {
   moves.update((moves) => moves + 1);
   saveGameToDB();
   if (isPuzzleSolved(updatedPuzzle)) {
+    trackSolvedPuzzle();
     isSolved.set(true);
   }
 }
