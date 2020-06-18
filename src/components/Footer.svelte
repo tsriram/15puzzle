@@ -4,6 +4,11 @@
     color: var(--text-color);
     font-size: 1rem;
   }
+
+  a {
+    color: hotpink;
+  }
+
   div {
     padding: 1rem;
   }
