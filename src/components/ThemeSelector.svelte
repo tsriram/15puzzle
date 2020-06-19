@@ -47,9 +47,7 @@
     background: none;
     border: none;
     font-size: 2rem;
-    position: fixed;
-    top: 0;
-    right: 10px;
+    padding: 0;
     cursor: pointer;
   }
   .btn-toggle-theme:active {

@@ -1,27 +1,24 @@
 <script>
   import GoogleAnalytics from "./GoogleAnalytics.svelte";
   import ServiceWorker from "./ServiceWorker.svelte";
-  import ThemeSelector from "./ThemeSelector.svelte";
   import PuzzleHome from "./PuzzleHome.svelte";
+  import Header from "./Header.svelte";
   import Footer from "./Footer.svelte";
-  import Logo from "./Logo.svelte";
 </script>
 
 <style>
   .container {
-    margin: 2rem auto 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: calc(100vh - 40px);
     padding: 20px;
   }
 </style>
 
 <main class="container">
-  <Logo />
+  <Header />
   <PuzzleHome />
+  <Footer />
 </main>
-<Footer />
-<ThemeSelector />
 <ServiceWorker />
 <GoogleAnalytics />

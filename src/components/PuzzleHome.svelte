@@ -14,7 +14,15 @@
   }
 </script>
 
-<div>
+<style>
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+</style>
+
+<div class="content-wrapper">
   {#await promise}
     <Loading />
   {:then hasExistingGame}

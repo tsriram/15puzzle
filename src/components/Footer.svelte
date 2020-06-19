@@ -23,5 +23,4 @@
       Found an issue?
     </a>
   </div>
-  <div />
 </footer>

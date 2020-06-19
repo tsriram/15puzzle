@@ -9,7 +9,7 @@
     width: 100%;
     align-items: center;
     justify-content: center;
-    height: 80vh;
+    margin-top: 2rem;
   }
 </style>
 
