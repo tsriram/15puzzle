@@ -6,6 +6,7 @@ import { terser } from "rollup-plugin-terser";
 
 import { generateSW } from "rollup-plugin-workbox";
 import workboxConfig from "./workbox-config.js";
+import replace from "@rollup/plugin-replace";
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -50,7 +51,14 @@ export default {
     // If we're building for production (npm run build
     // instead of npm run dev), minify
     production && terser(),
-    generateSW(workboxConfig)
+    generateSW(workboxConfig),
+    replace({
+      process: JSON.stringify({
+        env: {
+          isProd: production
+        }
+      })
+    })
   ],
   watch: {
     clearScreen: false
