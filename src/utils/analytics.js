@@ -2,7 +2,7 @@ import { get } from "svelte/store";
 import { time } from "../stores";
 
 export function trackExit() {
-  if (ga !== undefined) {
+  if (window.ga !== undefined) {
     ga("send", {
       hitType: "event",
       eventCategory: "Game",
@@ -14,7 +14,7 @@ export function trackExit() {
 }
 
 export function trackNewGame() {
-  if (ga !== undefined) {
+  if (window.ga !== undefined) {
     ga("send", {
       hitType: "event",
       eventCategory: "Game",
@@ -26,7 +26,7 @@ export function trackNewGame() {
 }
 
 export function trackSolvedPuzzle() {
-  if (ga !== undefined) {
+  if (window.ga !== undefined) {
     ga("send", {
       hitType: "event",
       eventCategory: "Game",
