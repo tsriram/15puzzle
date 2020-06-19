@@ -36,3 +36,14 @@ export function trackSolvedPuzzle() {
     });
   }
 }
+
+export function trackShare() {
+  if (window.ga !== undefined) {
+    ga("send", {
+      hitType: "event",
+      eventCategory: "Share",
+      eventAction: "Shared",
+      eventLabel: "Shared"
+    });
+  }
+}

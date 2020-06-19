@@ -1,5 +1,6 @@
 <script>
   import { startNewGame, completeGame } from "../game";
+  import { trackShare } from "../utils/analytics.js";
   import { isSolved, moves, time } from "../stores";
   import confetti from "canvas-confetti";
   import Button from "./Button.svelte";
@@ -11,6 +12,23 @@
   function newGame() {
     showOverlay = false;
     startNewGame();
+  }
+  const showShareButton = Boolean(navigator.share);
+
+  function share() {
+    if (navigator.share) {
+      const moveText = $moves === 1 ? "move" : "moves";
+      navigator
+        .share({
+          title: "15Puzzle",
+          text: `Woohoo! I solved a 15Puzzle in ${gameCompletionTime} using ${$moves} ${moveText} 🎉🎉🎉`,
+          url: "https://15puzzle-beta.now.sh/"
+        })
+        .then(trackShare)
+        .catch(error => console.log("Error sharing", error));
+    } else {
+      console.log("NO SHARE");
+    }
   }
 
   function setGameCompletionTime() {
@@ -69,21 +87,26 @@
     left: 0;
     right: 0;
     background-color: rgba(0, 0, 0, 0.7);
-    display: grid;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     padding: 3rem;
     font-size: 1.7rem;
     color: white;
     text-align: center;
+    justify-content: center;
   }
 </style>
 
 {#if showOverlay}
   <div class="solved-overlay">
     <div>
-      Woohoo! You solved the puzzle in {gameCompletionTime} using {$moves} moves
+      Woohoo! You solved the puzzle in {gameCompletionTime} using {$moves} {$moves === 1 ? 'move' : 'moves'}
       🎉🎉🎉
     </div>
+    {#if showShareButton}
+      <Button onClick={share}>Tell the World!</Button>
+    {/if}
     <Button onClick={newGame}>Start New Game</Button>
   </div>
 {/if}
