@@ -1,10 +1,19 @@
 <script>
-  import { handleMove, COLUMNS } from "../game";
+  import { handleMove, COLUMNS, pauseGame, resumeGame } from "../game";
   import { emptyCellIndex } from "../stores";
+  import { paused } from "../stores";
 
   function handleKeydown(event) {
-    const key = event.key;
+    const key = event.code;
     switch (key) {
+      case "Space":
+        if ($paused) {
+          resumeGame();
+        } else {
+          pauseGame();
+        }
+        return;
+
       case "ArrowLeft":
         handleMove($emptyCellIndex + 1);
         return;
