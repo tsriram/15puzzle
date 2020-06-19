@@ -205,9 +205,7 @@ export function handleMove(indexToMove) {
 // our grid width is even (for now)
 function isPuzzleSolvable(puzzle) {
   const emptyCellIndex = puzzle.indexOf(EMPTY);
-  console.log("emptyCellIndex: ", emptyCellIndex);
   const inversionCount = getInversionCount(puzzle);
-  console.log("inversionCount: ", inversionCount);
   const blankCellRowFromBottom = Math.ceil(
     (puzzle.length - (emptyCellIndex + 1)) / COLUMNS
   );
