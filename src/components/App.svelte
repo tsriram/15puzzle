@@ -4,6 +4,8 @@
   import PuzzleHome from "./PuzzleHome.svelte";
   import Header from "./Header.svelte";
   import Footer from "./Footer.svelte";
+
+  const isProd = process.env.isProd;
 </script>
 
 <style>
@@ -20,5 +22,7 @@
   <PuzzleHome />
   <Footer />
 </main>
-<ServiceWorker />
-<GoogleAnalytics />
+{#if isProd}
+  <ServiceWorker />
+  <GoogleAnalytics />
+{/if}
