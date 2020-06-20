@@ -10,7 +10,7 @@
     text-transform: uppercase;
     background-color: var(--button-bg-color);
     color: var(--button-text-color);
-    font-size: 1.2rem;
+    font-size: 1rem;
     letter-spacing: 2px;
     border: 4px solid var(--grid-border-color);
   }
