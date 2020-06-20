@@ -1,7 +1,6 @@
 import { writable, derived } from "svelte/store";
 import { EMPTY } from "../game";
 
-export const theme = writable("light");
 export const paused = writable(false);
 export const moves = writable(0);
 export const time = writable(0);

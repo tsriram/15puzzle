@@ -6,6 +6,20 @@ body {
 }
 
 html {
+  --max-width: 416px;
+}
+
+html.dark {
+  --bg-color: #243447;
+  --text-color: #fff;
+  --grid-border-color: #3d5566;
+  --cell-bg-color: #1b2836;
+  --cell-text-color: #fff;
+  --button-bg-color: #1b2836;
+  --button-text-color: #fff;
+}
+
+html.light {
   --bg-color: #f0ebd8;
   --text-color: #1b2836;
   --grid-border-color: #655e56;
@@ -13,7 +27,6 @@ html {
   --cell-text-color: #1b2836;
   --button-bg-color: #c2bcad;
   --button-text-color: #1b2836;
-  --max-width: 416px;
 }
 
 body {

@@ -66,6 +66,7 @@
     justify-content: center;
     padding: 20px;
     box-sizing: border-box;
+    background-color: var(--bg-color);
   }
 
   .refresh-prompt-button {

@@ -37,6 +37,22 @@
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="apple-touch-icon" href="/assets/icons/icon-192.png" />
 
+    <script>
+      try {
+        const themeKey = "15puzzle:theme";
+        if (!("theme" in localStorage)) {
+          const initialTheme = window.matchMedia("(prefers-color-scheme: dark)")
+            ? "dark"
+            : "light";
+          localStorage.setItem(themeKey, initialTheme);
+        }
+        document
+          .querySelector("html")
+          .classList.add(localStorage.getItem(themeKey));
+      } catch (e) {
+        console.error(e);
+      }
+    </script>
     <script defer src="/build/bundle.js"></script>
   </head>
 
