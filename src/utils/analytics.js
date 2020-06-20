@@ -47,3 +47,13 @@ export function trackShare() {
     });
   }
 }
+
+export function trackInstall() {
+  if (window.ga !== undefined) {
+    ga("send", {
+      hitType: "event",
+      eventCategory: "App",
+      eventAction: "Install"
+    });
+  }
+}

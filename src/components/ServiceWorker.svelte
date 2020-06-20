@@ -1,4 +1,5 @@
 <script>
+  import { trackInstall } from "../utils/analytics.js";
   import { Workbox, messageSW } from "workbox-window";
   import { fly } from "svelte/transition";
   import { onMount } from "svelte";
@@ -8,6 +9,10 @@
 
   onMount(() => {
     registerSW();
+
+    window.addEventListener("appinstalled", () => {
+      trackInstall();
+    });
   });
 
   function createUIPrompt({ onAccept, onReject }) {
