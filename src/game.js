@@ -89,6 +89,7 @@ export async function startNewGame() {
   puzzle.set(getPuzzle());
   moves.set(0);
   time.set(0);
+  isSolved.set(false);
   saveGameToDB();
   resumeGame();
 }
