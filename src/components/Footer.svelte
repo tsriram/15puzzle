@@ -17,9 +17,14 @@
 <footer>
   <div>
     Built by
-    <a target="_blank" href="https://twitter.com/tsriram">Sriram</a>
+    <a target="_blank" rel="noopener" href="https://twitter.com/tsriram">
+      Sriram
+    </a>
     <span>|</span>
-    <a target="_blank" href="https://github.com/tsriram/15puzzle/issues/new">
+    <a
+      target="_blank"
+      rel="noopener"
+      href="https://github.com/tsriram/15puzzle/issues/new">
       Found an issue?
     </a>
   </div>
