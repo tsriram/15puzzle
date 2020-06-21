@@ -40,7 +40,7 @@
     <script>
       try {
         const themeKey = "15puzzle:theme";
-        if (!("theme" in localStorage)) {
+        if (!(themeKey in localStorage)) {
           const initialTheme = window.matchMedia("(prefers-color-scheme: dark)")
             ? "dark"
             : "light";

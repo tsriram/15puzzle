@@ -16,7 +16,7 @@
     theme = theme === "light" ? "dark" : "light";
     classList.add(theme);
     try {
-      setItem(theme);
+      setItem(THEME_KEY, theme);
     } catch (e) {
       // ignore
     }
