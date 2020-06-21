@@ -7,6 +7,7 @@
 
   a {
     color: hotpink;
+    text-decoration: none;
   }
 
   div {
