@@ -14,6 +14,7 @@
     grid-template-rows: auto 1fr auto;
     min-height: calc(100vh - 40px);
     padding: 20px;
+    user-select: none;
   }
 </style>
 
