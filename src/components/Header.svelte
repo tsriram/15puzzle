@@ -9,6 +9,7 @@
     justify-content: center;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
+    grid-gap: 16px;
   }
   .theme-selector-wrapper {
     display: flex;
