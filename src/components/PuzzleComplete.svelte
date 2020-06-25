@@ -20,8 +20,8 @@
       const moveText = $moves === 1 ? "move" : "moves";
       navigator
         .share({
-          title: "15Puzzle",
-          text: `Woohoo! I solved a 15Puzzle in ${gameCompletionTime} using ${$moves} ${moveText} 🎉🎉🎉`,
+          title: "15 Puzzle",
+          text: `Woohoo! I solved a 15 Puzzle in ${gameCompletionTime} using ${$moves} ${moveText} 🎉🎉🎉`,
           url: "https://15puzzle.xyz/"
         })
         .then(trackShare)
