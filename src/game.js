@@ -115,6 +115,7 @@ function clearTimers() {
 export function pauseGame() {
   clearTimers();
   paused.set(true);
+  saveGameToDB();
 }
 
 export function resumeGame() {
