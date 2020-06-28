@@ -6,7 +6,7 @@
     secondsString,
     paused
   } from "../stores";
-  import { handleMove, canMove, resumeGame } from "../game";
+  import { handleMove, resumeGame } from "../game";
   import VisibilityHandler from "./VisibilityHandler.svelte";
   import KeyboardHandler from "./KeyboardHandler.svelte";
   import PuzzleComplete from "./PuzzleComplete.svelte";
