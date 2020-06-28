@@ -87,21 +87,19 @@
   }
 </style>
 
-<div class="puzzle-container" in:fly={{ y: 100, duration: 200, delay: 50 }}>
-  <div class="puzzle" class:paused on:click={handleResumeGame}>
-    {#each puzzle as cellValue, index (cellValue)}
-      <div
-        animate:flip={{ duration: 60 }}
-        class:cell={cellValue !== EMPTY}
-        class:empty-cell={cellValue === EMPTY}
-        class:no-move={!canMove(index)}
-        on:click={() => handleMove(index)}>
-        {cellValue === EMPTY ? '' : cellValue}
-      </div>
-    {/each}
-    <div class="paused-text">
-      <div>Paused</div>
-      <div class="hint">Click to resume</div>
+<div class="puzzle" class:paused on:click={handleResumeGame}>
+  {#each puzzle as cellValue, index (cellValue)}
+    <div
+      animate:flip={{ duration: 60 }}
+      class:cell={cellValue !== EMPTY}
+      class:empty-cell={cellValue === EMPTY}
+      class:no-move={!canMove(index)}
+      on:click={() => handleMove(index)}>
+      {cellValue === EMPTY ? '' : cellValue}
     </div>
+  {/each}
+  <div class="paused-text">
+    <div>Paused</div>
+    <div class="hint">Click to resume</div>
   </div>
 </div>
