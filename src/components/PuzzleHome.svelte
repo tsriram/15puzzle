@@ -4,7 +4,6 @@
   import NewGame from "./NewGame.svelte";
   import Loading from "./Loading.svelte";
   import Puzzle from "./Puzzle.svelte";
-  import { puzzle } from "../stores";
   let promise = initGame();
   let showDemo = false;
 

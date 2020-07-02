@@ -10,12 +10,6 @@
 </script>
 
 <style>
-  .puzzle-container {
-    max-width: var(--max-width);
-    display: grid;
-    width: 100%;
-  }
-
   .puzzle {
     display: grid;
     position: relative;
