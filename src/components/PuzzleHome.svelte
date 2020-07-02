@@ -1,23 +1,8 @@
 <script>
   import { startNewGame, initGame } from "../game";
-  import PuzzleDemo from "./PuzzleDemo.svelte";
-  import NewGame from "./NewGame.svelte";
   import Loading from "./Loading.svelte";
   import Puzzle from "./Puzzle.svelte";
-  let promise = initGame();
-  let showDemo = false;
-
-  function handleStartFirstGame() {
-    showDemo = false;
-    promise = new Promise(resolve => {
-      startNewGame();
-      resolve(true);
-    });
-  }
-
-  function onShowDemo() {
-    showDemo = true;
-  }
+  const promise = initGame();
 </script>
 
 <style>
@@ -30,19 +15,9 @@
 </style>
 
 <div class="content-wrapper">
-
-  {#if showDemo}
-    <PuzzleDemo onNewGame={handleStartFirstGame} />
-  {:else}
-    {#await promise}
-      <Loading />
-    {:then hasExistingGame}
-      {#if hasExistingGame}
-        <Puzzle />
-      {:else}
-        <NewGame onNewGame={handleStartFirstGame} {onShowDemo} />
-        <!-- <PuzzleDemo /> -->
-      {/if}
-    {/await}
-  {/if}
+  {#await promise}
+    <Loading />
+  {:then}
+    <Puzzle />
+  {/await}
 </div>
