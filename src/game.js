@@ -88,7 +88,6 @@ function setupGame() {
   moves.set(0);
   time.set(0);
   isSolved.set(false);
-  saveGameToDB();
 }
 
 async function startFirstGame() {
