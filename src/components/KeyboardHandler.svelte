@@ -6,13 +6,15 @@
   function handleKeydown(event) {
     const key = event.code;
     switch (key) {
-      case "Space":
-        if ($paused) {
-          resumeGame();
-        } else {
-          pauseGame();
-        }
-        return;
+      // TODO: this needs more work - when the "New Game" button is focused and space bar is pressed,
+      // what do we want to do?
+      // case "Space":
+      //   if ($paused) {
+      //     resumeGame();
+      //   } else {
+      //     pauseGame();
+      //   }
+      //   return;
 
       case "ArrowLeft":
         handleMove($emptyCellIndex + 1);
