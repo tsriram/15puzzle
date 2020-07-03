@@ -6,7 +6,7 @@
     secondsString,
     paused
   } from "../stores";
-  import { handleMove, resumeGame } from "../game";
+  import { handleMove, resumeGame, startNewGame } from "../game";
   import VisibilityHandler from "./VisibilityHandler.svelte";
   import KeyboardHandler from "./KeyboardHandler.svelte";
   import PuzzleComplete from "./PuzzleComplete.svelte";
@@ -15,6 +15,16 @@
   import PuzzleBoard from "./PuzzleBoard.svelte";
   import { fly } from "svelte/transition";
   import { flip } from "svelte/animate";
+
+  let flipAnimationDuration = 60;
+
+  function handleStartNewGame() {
+    flipAnimationDuration = 300;
+    startNewGame();
+    setTimeout(() => {
+      flipAnimationDuration = 60;
+    }, 300);
+  }
 
   function handleResumeGame() {
     if ($paused) {
@@ -58,8 +68,9 @@
     puzzle={$puzzle}
     {handleResumeGame}
     paused={$paused}
+    {flipAnimationDuration}
     {handleMove} />
-  <PuzzleActions />
+  <PuzzleActions onStartNewGame={handleStartNewGame} />
 
   <KeyboardHandler />
   <TouchHandler />

@@ -3,6 +3,7 @@
   import { fly } from "svelte/transition";
   import { flip } from "svelte/animate";
 
+  export let flipAnimationDuration;
   export let handleResumeGame;
   export let handleMove;
   export let paused;
@@ -84,7 +85,7 @@
 <div class="puzzle" class:paused on:click={handleResumeGame}>
   {#each puzzle as cellValue, index (cellValue)}
     <div
-      animate:flip={{ duration: 60 }}
+      animate:flip={{ duration: flipAnimationDuration }}
       class:cell={cellValue !== EMPTY}
       class:empty-cell={cellValue === EMPTY}
       class:no-move={!canMove(index)}

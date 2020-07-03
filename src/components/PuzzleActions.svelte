@@ -1,7 +1,9 @@
 <script>
-  import { startNewGame, pauseGame, resumeGame } from "../game";
+  import { pauseGame, resumeGame } from "../game";
   import Button from "./Button.svelte";
   import { paused } from "../stores";
+
+  export let onStartNewGame;
 </script>
 
 <style>
@@ -13,7 +15,7 @@
 </style>
 
 <div class="actions">
-  <Button onClick={startNewGame}>New Game</Button>
+  <Button onClick={onStartNewGame}>New Game</Button>
   {#if $paused}
     <Button onClick={resumeGame}>Resume</Button>
   {:else}
