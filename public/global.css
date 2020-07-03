@@ -31,7 +31,7 @@ html.light {
 
 @font-face {
   font-family: "B612 Mono";
-  src: url("/assets/fonts/B612Mono-Regular.ttf") format("truetype");
+  src: url("/assets/fonts/B612Mono-Regular.woff2");
 }
 
 * {
