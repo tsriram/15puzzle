@@ -38,10 +38,6 @@
     text-transform: uppercase;
   }
 
-  .game-info .label {
-    margin-right: 12px;
-  }
-
   .time {
     justify-self: end;
   }

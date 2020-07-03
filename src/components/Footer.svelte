@@ -2,7 +2,7 @@
   footer {
     text-align: center;
     color: var(--text-color);
-    font-size: 1rem;
+    font-size: 14px;
   }
 
   a {
