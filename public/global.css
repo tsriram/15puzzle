@@ -29,13 +29,20 @@ html.light {
   --button-text-color: #1b2836;
 }
 
+@font-face {
+  font-family: "B612 Mono";
+  src: url("/assets/fonts/B612Mono-Regular.ttf") format("truetype");
+}
+
+* {
+  font-family: "B612 Mono", monospace;
+}
+
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: all 500ms;
   margin: 0;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   overscroll-behavior: contain;
 }
