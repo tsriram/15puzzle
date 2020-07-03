@@ -104,6 +104,7 @@ export async function startNewGame() {
 
   isFirstGame.set(false);
   resumeGame();
+  saveGameToDB();
 }
 
 function startTimer() {
