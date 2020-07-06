@@ -1,8 +1,12 @@
 <script>
+  import { time, moves, paused } from "../stores";
   import { pauseGame } from "../game";
+
   function handleVisibilityChange() {
     if (document.hidden) {
-      pauseGame();
+      if (($time > 0 || $moves > 0) && $paused === false) {
+        pauseGame();
+      }
     }
   }
 </script>

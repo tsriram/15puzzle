@@ -6,6 +6,7 @@ export const moves = writable(0);
 export const time = writable(0);
 export const puzzle = writable([]);
 export const isSolved = writable(false);
+export const isFirstGame = writable(false);
 
 export const emptyCellIndex = derived(puzzle, ($puzzle) =>
   $puzzle.indexOf(EMPTY)

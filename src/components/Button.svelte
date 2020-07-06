@@ -14,6 +14,11 @@
     letter-spacing: 2px;
     border: 4px solid var(--grid-border-color);
   }
+
+  .btn:focus {
+    outline: none;
+    border-color: var(--text-color);
+  }
 </style>
 
 <button class="btn" on:click={onClick}>

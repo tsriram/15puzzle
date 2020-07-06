@@ -4,7 +4,8 @@ import {
   time,
   paused,
   emptyCellIndex,
-  isSolved
+  isSolved,
+  isFirstGame
 } from "./stores";
 import { trackNewGame, trackSolvedPuzzle } from "./utils/analytics";
 import { dbGet, dbSet } from "./utils/db";
@@ -75,9 +76,23 @@ export async function initGame() {
     moves.set(existingGame.moves);
     time.set(existingGame.time);
     pauseGame();
-    return true;
+  } else {
+    startFirstGame(true);
   }
-  return false;
+  return true;
+}
+
+function setupGame() {
+  trackNewGame();
+  puzzle.set(getPuzzle());
+  moves.set(0);
+  time.set(0);
+  isSolved.set(false);
+}
+
+async function startFirstGame() {
+  setupGame();
+  isFirstGame.set(true);
 }
 
 function startSaveToDBTimer() {
@@ -85,13 +100,11 @@ function startSaveToDBTimer() {
 }
 
 export async function startNewGame() {
-  trackNewGame();
-  puzzle.set(getPuzzle());
-  moves.set(0);
-  time.set(0);
-  isSolved.set(false);
-  saveGameToDB();
+  setupGame();
+
+  isFirstGame.set(false);
   resumeGame();
+  saveGameToDB();
 }
 
 function startTimer() {
@@ -119,6 +132,9 @@ export function pauseGame() {
 }
 
 export function resumeGame() {
+  if (timer || dbSaveTimer) {
+    clearTimers();
+  }
   startTimer();
   startSaveToDBTimer();
   paused.set(false);
@@ -180,6 +196,9 @@ export function handleMove(indexToMove) {
   const isPaused = get(paused);
   if (isPaused) {
     return;
+  }
+  if (!timer) {
+    resumeGame();
   }
   if (!canMove(indexToMove)) {
     return;
