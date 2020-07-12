@@ -96,11 +96,16 @@
     text-align: center;
     justify-content: center;
   }
+
+  .success-content {
+    width: var(--max-width);
+    margin: 2rem auto;
+  }
 </style>
 
 {#if showOverlay}
   <div class="solved-overlay">
-    <div>
+    <div class="success-content">
       Woohoo! You solved the puzzle in {gameCompletionTime} using {$moves} {$moves === 1 ? 'move' : 'moves'}
       🎉🎉🎉
     </div>
