@@ -91,7 +91,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 3rem;
+    padding: 1.5rem;
     font-size: 1.7rem;
     color: white;
     text-align: center;
