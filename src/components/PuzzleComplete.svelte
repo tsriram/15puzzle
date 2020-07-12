@@ -1,5 +1,5 @@
 <script>
-  import { startNewGame, completeGame } from "../game";
+  import { completeGame } from "../game";
   import { trackShare } from "../utils/analytics.js";
   import { isSolved, moves, time } from "../stores";
   import confetti from "canvas-confetti";
@@ -9,9 +9,10 @@
   let showOverlay = false;
   let gameCompletionTime = "";
 
+  export let onNewGame;
   function newGame() {
     showOverlay = false;
-    startNewGame();
+    onNewGame();
   }
   const showShareButton = Boolean(navigator.share);
 

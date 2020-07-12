@@ -75,5 +75,5 @@
   <KeyboardHandler />
   <TouchHandler />
   <VisibilityHandler />
-  <PuzzleComplete />
+  <PuzzleComplete onNewGame={handleStartNewGame} />
 </div>
