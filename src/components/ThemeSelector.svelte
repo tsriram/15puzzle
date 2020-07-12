@@ -1,5 +1,7 @@
 <script>
   import { getItem, setItem } from "../utils/storage";
+  import Moon from "./icons/Moon.svelte";
+  import Sun from "./icons/Sun.svelte";
   import { onMount } from "svelte";
 
   const THEME_KEY = "theme";
@@ -38,6 +40,10 @@
 
 {#if theme !== undefined}
   <button class="btn-toggle-theme" on:click={toggleTheme} title="Toggle theme">
-    {#if theme === 'dark'}🔆{:else}🌚{/if}
+    {#if theme === 'dark'}
+      <Sun />
+    {:else}
+      <Moon />
+    {/if}
   </button>
 {/if}
