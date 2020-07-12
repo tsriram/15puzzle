@@ -57,7 +57,7 @@ export function getPuzzle() {
 
 export async function initGame() {
   const existingGame = await dbGet("game");
-  if (existingGame) {
+  if (existingGame && !isPuzzleSolved(existingGame.puzzle)) {
     puzzle.set(existingGame.puzzle);
     moves.set(existingGame.moves);
     time.set(existingGame.time);
