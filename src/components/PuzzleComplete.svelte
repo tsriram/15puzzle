@@ -99,7 +99,7 @@
   }
 
   .success-content {
-    width: var(--max-width);
+    max-width: var(--max-width);
     margin: 2rem auto;
   }
 </style>
