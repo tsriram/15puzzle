@@ -1,7 +1,7 @@
 export default {
   globDirectory: "./public/",
   globPatterns: ["**/*.{html,js,css,woff2}"],
-  swDest: "./public/sw.js",
+  swDest: "./build/sw.js",
   clientsClaim: true,
   skipWaiting: false
 };
