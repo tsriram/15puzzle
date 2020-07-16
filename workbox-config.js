@@ -1,5 +1,5 @@
 export default {
-  globDirectory: "./public/",
+  globDirectory: "./build/",
   globPatterns: ["**/*.{html,js,css,woff2}"],
   swDest: "./build/sw.js",
   clientsClaim: true,
