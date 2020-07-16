@@ -43,14 +43,12 @@ export function getPuzzle() {
   let puzzle = shuffle(SOLVED_STATE);
   let count = 0;
   while (!isSolvable(puzzle) && count < 10) {
-    console.log("Unsolvable: ", puzzle);
     puzzle = shuffle(SOLVED_STATE);
     count++;
   }
   if (count >= 10) {
     return SOLVABLE_PUZZLE1;
   } else {
-    console.log("Solvable: ", puzzle);
     return puzzle;
   }
 }
