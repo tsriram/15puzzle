@@ -3,5 +3,6 @@ export default {
   globPatterns: ["**/*.{html,js,css,woff2}"],
   swDest: "./build/sw.js",
   clientsClaim: true,
-  skipWaiting: false
+  skipWaiting: false,
+  ignoreURLParametersMatching: [new RegExp("source")]
 };
