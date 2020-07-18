@@ -22,7 +22,7 @@
       navigator
         .share({
           title: "15 Puzzle",
-          text: `Woohoo! I solved a 15 Puzzle in ${gameCompletionTime} using ${$moves} ${moveText} 🎉🎉🎉`,
+          text: `Woo-hoo! I solved a 15 Puzzle in ${gameCompletionTime} using ${$moves} ${moveText} 🎉🎉🎉`,
           url: "https://15puzzle.xyz/"
         })
         .then(trackShare)
@@ -107,7 +107,7 @@
 {#if showOverlay}
   <div class="solved-overlay">
     <div class="success-content">
-      Woohoo! You solved the puzzle in {gameCompletionTime} using {$moves} {$moves === 1 ? 'move' : 'moves'}
+      Woo-hoo! You solved the puzzle in {gameCompletionTime} using {$moves} {$moves === 1 ? 'move' : 'moves'}
       🎉🎉🎉
     </div>
     {#if showShareButton}
