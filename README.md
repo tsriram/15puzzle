@@ -1,4 +1,11 @@
-## 15 Puzzle UI with Svelte
+## 15 Puzzle
+
+15 Puzzle [Progressive Web App](https://web.dev/progressive-web-apps/) built
+with [Svelte](https://svelte.dev/), hosted on [Vercel](https://vercel.com/).
+
+Play at [15puzzle.xyz](https://15puzzle.xyz/) 🙂
+
+It all started here:
 
 Just playing around with Svelte to check how FLIP animations work out of the
 box. It took quite a bit of time for me to get this working in React.
