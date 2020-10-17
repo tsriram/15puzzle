@@ -184,10 +184,13 @@ export function handleMove(indexToMove) {
   if (!timer) {
     resumeGame();
   }
+  const currentPuzzle = get(puzzle);
+  if (isPuzzleSolved(currentPuzzle)) {
+    return;
+  }
   if (!canMove(indexToMove)) {
     return;
   }
-  const currentPuzzle = get(puzzle);
   const numberToMove = currentPuzzle[indexToMove];
   const updatedPuzzle = currentPuzzle.map((number, index) => {
     if (index === indexToMove) {
