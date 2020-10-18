@@ -4,6 +4,7 @@
   import { paused } from "../stores";
 
   function handleKeydown(event) {
+    event.preventDefault();
     const key = event.code;
     switch (key) {
       // TODO: this needs more work - when the "New Game" button is focused and space bar is pressed,
