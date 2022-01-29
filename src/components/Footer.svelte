@@ -25,8 +25,8 @@
     <a
       target="_blank"
       rel="noopener"
-      href="https://github.com/tsriram/15puzzle/issues/new">
-      Found an issue?
+      href="https://www.buymeacoffee.com/tsriram">
+      Buy me a coffee?
     </a>
   </div>
 </footer>
