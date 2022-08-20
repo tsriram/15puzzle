@@ -1,9 +1,0 @@
-/node_modules/
-/public/build/
-build/
-
-.DS_Store
-
-
-/public/sw.*
-/public/workbox*
