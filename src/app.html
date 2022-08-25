@@ -2,9 +2,43 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+		<meta property="og:title" content="15 Puzzle" />
+		<meta name="description" content="A simple progressive web app to play 15 Puzzle game." />
+		<meta
+			property="og:description"
+			content="A simple progressive web app to play 15 Puzzle game."
+		/>
+		<meta name="og:image" content="https://15puzzle.xyz/assets/images/social.png" />
+		<meta property="og:url" content="https://15puzzle.xyz" />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@tsriram" />
+		<meta name="twitter:image" content="https://15puzzle.xyz/assets/images/social.png" />
+		<meta name="theme-color" content="#243447" />
 		<meta name="viewport" content="width=device-width" />
+
+		<title>15 Puzzle</title>
+
 		%sveltekit.head%
+
+		<link rel="icon" type="image/png" href="/assets/icons/favicon-light.png" />
+		<link rel="stylesheet" href="/global.css" />
+		<link rel="manifest" href="/manifest.webmanifest" />
+		<link rel="apple-touch-icon" href="/assets/icons/icon-192.png" />
+
+		<script>
+			try {
+				const themeKey = '15puzzle:theme';
+				if (!(themeKey in localStorage)) {
+					const initialTheme = window.matchMedia('(prefers-color-scheme: dark)') ? 'dark' : 'light';
+					localStorage.setItem(themeKey, initialTheme);
+				}
+				document.querySelector('html').classList.add(localStorage.getItem(themeKey));
+			} catch (e) {
+				console.error(e);
+			}
+		</script>
 	</head>
 	<body>
 		<div>%sveltekit.body%</div>
