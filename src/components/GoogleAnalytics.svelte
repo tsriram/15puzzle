@@ -1,15 +1,10 @@
 <svelte:head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0L1ZQPK3BN"></script>
   <script>
-    window.ga =
-      window.ga ||
-      function() {
-        (ga.q = ga.q || []).push(arguments);
-      };
-    ga.l = +new Date();
-    ga("create", "UA-82144226-7", "auto");
-    ga("send", "pageview");
-  </script>
-  <script async src="https://www.google-analytics.com/analytics.js">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
+    gtag('config', 'G-0L1ZQPK3BN');
   </script>
 </svelte:head>
