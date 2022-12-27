@@ -1,4 +1,4 @@
-const KEY_PREFIX = "15puzzle:";
+const KEY_PREFIX = "puzzle15:";
 
 export function getItem(key) {
   return window.localStorage.getItem(`${KEY_PREFIX}${key}`);
