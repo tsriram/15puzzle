@@ -1,0 +1,1 @@
+{"short_name":"puzzle15","name":"puzzle15","description":"puzzle15 game","icons":[{"src":"/assets/icons/icon-192.png","type":"image/png","sizes":"192x192"},{"src":"/assets/icons/icon-512.png","type":"image/png","sizes":"512x512"}],"start_url":"/?source=pwa","background_color":"#243447","display":"standalone","scope":"/","theme_color":"#243447"}

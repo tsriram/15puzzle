@@ -1,16 +1,23 @@
 ## 15 Puzzle
 
-15 Puzzle [Progressive Web App](https://web.dev/progressive-web-apps/) built
-with [Svelte](https://svelte.dev/), hosted on [Vercel](https://vercel.com/).
-
 Play at [puzzle15.pp.ua](https://puzzle15.pp.ua/) 🙂
 
-It all started here:
-
-Just playing around with Svelte to check how FLIP animations work out of the
-box. It took quite a bit of time for me to get this working in React.
-
-More info here -- https://twitter.com/tsriram/status/1253644800248524800
-
-
+## bubblewrap
+To build/update project you need `bubblewrap`.
+[Link](https://github.com/GoogleChromeLabs/bubblewrap).
+### installation
+run command
+```bash
+npm i -g @bubblewrap/cli
+```
+to install project globally.
+### Regen android project
 bubblewrap init --manifest https://puzzle15.pp.ua/manifest.webmanifest
+
+### Build APK
+bubblewrap build
+
+### Keystore
+Keystore is in "android.keystore" in /
+
+Password: 3456782134
