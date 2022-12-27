@@ -23,7 +23,7 @@
         .share({
           title: "15 Puzzle",
           text: `Woo-hoo! I solved a 15 Puzzle in ${gameCompletionTime} using ${$moves} ${moveText} 🎉🎉🎉`,
-          url: "https://15puzzle.xyz/"
+          url: "https://www.15puzzle.pp.ua/"
         })
         .then(trackShare)
         .catch(error => console.log("Error sharing", error));

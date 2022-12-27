@@ -3,7 +3,7 @@
 15 Puzzle [Progressive Web App](https://web.dev/progressive-web-apps/) built
 with [Svelte](https://svelte.dev/), hosted on [Vercel](https://vercel.com/).
 
-Play at [15puzzle.xyz](https://15puzzle.xyz/) 🙂
+Play at [15puzzle.xyz](https://www.15puzzle.pp.ua/) 🙂
 
 It all started here:
 
