@@ -1,7 +1,7 @@
 {
-  "short_name": "15puzzle",
-  "name": "15puzzle",
-  "description": "15puzzle game",
+  "short_name": "puzzle15",
+  "name": "puzzle15",
+  "description": "puzzle15 game",
   "icons": [
     {
       "src": "/assets/icons/icon-192.png",
