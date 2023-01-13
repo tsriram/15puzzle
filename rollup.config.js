@@ -48,7 +48,10 @@ export default {
     file: "build/bundle.[hash].js"
   },
   plugins: [
-    copy({ targets: [{ src: "public/*", dest: "build" }] }),
+    copy({ targets: [
+        { src: "public/*", dest: "build" },
+        { src: "public/.well-known", dest: "build/" }
+      ] }),
     svelte({
       // enable run-time checks when not in production
       dev: !production,
