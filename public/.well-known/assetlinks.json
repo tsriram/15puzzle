@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "ua.pp.puzzle15.twa",
+      "sha256_cert_fingerprints": [
+        "1B:B6:A0:50:B0:3A:88:3A:04:8F:4A:AA:8E:2D:0B:EC:DE:2F:1B:17:6A:A2:36:D2:8B:3B:62:28:23:DC:06:5E"
+      ]
+    }
+  }
+]
