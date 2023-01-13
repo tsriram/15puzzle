@@ -21,6 +21,8 @@ import android.os.Build;
 import android.os.Bundle;
 
 
+    import com.appsflyer.AppsFlyerLib;
+
 
 public class LauncherActivity
         extends com.google.androidbrowserhelper.trusted.LauncherActivity {
@@ -47,6 +49,12 @@ public class LauncherActivity
         // Get the original launch Url.
         Uri uri = super.getLaunchingUrl();
 
+        
+            String appsFlyerId = AppsFlyerLib.getInstance().getAppsFlyerUID(this);
+         uri = uri
+              .buildUpon()
+              .appendQueryParameter("appsflyer_id", appsFlyerId)
+              .build();
         
 
         return uri;

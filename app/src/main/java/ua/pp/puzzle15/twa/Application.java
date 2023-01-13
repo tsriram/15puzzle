@@ -16,14 +16,42 @@
 package ua.pp.puzzle15.twa;
 
 
+  import java.util.Map;
+
+  import com.appsflyer.AppsFlyerLib;
+
+  import com.appsflyer.AppsFlyerConversionListener;
+
 
 public class Application extends android.app.Application {
 
+  
+    private static final String AF_DEV_KEY = "7CRgZCJkXm99hqyeBBgtCn";
   
 
   @Override
   public void onCreate() {
       super.onCreate();
+      
+        AppsFlyerConversionListener conversionListener = new AppsFlyerConversionListener() {
+            @Override
+            public void onConversionDataSuccess(Map<String, Object> conversionData) {
+            }
+
+            @Override
+            public void onConversionDataFail(String errorMessage) {
+            }
+
+            @Override
+            public void onAppOpenAttribution(Map<String, String> attributionData) {
+            }
+
+            @Override
+            public void onAttributionFailure(String errorMessage) {
+            }
+        };
+        AppsFlyerLib.getInstance().init(AF_DEV_KEY, conversionListener, this);
+        AppsFlyerLib.getInstance().startTracking(this);
       
   }
 }

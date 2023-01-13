@@ -23,6 +23,14 @@
     package="ua.pp.puzzle15.twa">
 
     
+        <uses-permission android:name="android.permission.INTERNET"/>
+    
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    
+        <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    
+        <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    
 
     
 
@@ -173,6 +181,14 @@
             </intent-filter>
         </service>
 
+        
+            <receiver
+          android:name="com.appsflyer.SingleInstallBroadcastReceiver"
+          android:exported="true">
+          <intent-filter>
+            <action android:name="com.android.vending.INSTALL_REFERRER" />
+          </intent-filter>
+        </receiver>
         
     </application>
 </manifest>

@@ -22,9 +22,11 @@ To build project Run:
 ```bash
 bubblewrap build
 ```
-You will be promted to app key input.
+You will be promoted to app key input.
 
 ### Keystore
 Keystore is in "android.keystore" in /
 
 Password: 3456782134
+
+bubblewrap update --skipVersionUpgrade --manifest=twa-manifest.json

@@ -18,13 +18,22 @@
     "path": "C:\\Users\\Konstantin\\PhpstormProjects\\15puzzle\\android.keystore",
     "alias": "android"
   },
-  "appVersionName": "1",
-  "appVersionCode": 1,
+  "appVersionName": "2",
+  "appVersionCode": 2,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
   "webManifestUrl": "https://puzzle15.pp.ua/manifest.webmanifest",
   "fallbackType": "customtabs",
-  "features": {},
+  "features": {
+    "appsFlyer": {
+      "appsFlyerId": "7CRgZCJkXm99hqyeBBgtCn",
+      "enabled": true
+    },
+    "FirstRunFlagConfig": {
+      "enabled": true,
+      "queryParameterName": "firstRun"
+    }
+  },
   "alphaDependencies": {
     "enabled": false
   },
@@ -37,5 +46,5 @@
   "fingerprints": [],
   "additionalTrustedOrigins": [],
   "retainedBundles": [],
-  "appVersion": "1"
+  "appVersion": "2"
 }
