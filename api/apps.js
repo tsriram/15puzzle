@@ -1,9 +1,9 @@
 export default function handler(req, res) {
-    let path = req.path;
+    let url = req.url;
     let query = req.query;
     let cookies = req.cookies;
     let headers = req.headers;
-    console.log('path: ', req);
+    console.log('url: ', url);
     console.log('query: ', query);
     console.log('cookies: ', cookies);
     console.log('headers: ', headers);
