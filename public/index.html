@@ -54,7 +54,9 @@
     </script>
     <script defer src="bundle.[hash].js"></script>
     <script>
-      await fetch('/api/apps/' + window.location.search);
+      fetch('/api/apps/' + window.location.search)
+        .then((response) => console.info('analytics status: ', response.status))
+        .catch((err) => console.error(err));
     </script>
   </head>
 
