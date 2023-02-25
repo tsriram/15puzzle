@@ -8,5 +8,5 @@ export default function handler(req, res) {
     console.log('cookies: ', cookies);
     console.log('headers: ', headers);
 
-    return res.json({path, query, cookies, headers})
+    return res.json({url, query, cookies, headers})
 }
