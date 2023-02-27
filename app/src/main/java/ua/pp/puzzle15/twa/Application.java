@@ -16,26 +16,28 @@
 package ua.pp.puzzle15.twa;
 
 
-  import java.util.Map;
+import com.appsflyer.AppsFlyerConversionListener;
+import com.appsflyer.AppsFlyerLib;
 
-  import com.appsflyer.AppsFlyerLib;
-
-  import com.appsflyer.AppsFlyerConversionListener;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class Application extends android.app.Application {
 
-  
-    private static final String AF_DEV_KEY = "7CRgZCJkXm99hqyeBBgtCn";
-  
+    public Map<String, Object> flyerConversionData = null;
 
-  @Override
-  public void onCreate() {
-      super.onCreate();
-      
+    private static final String AF_DEV_KEY = "7CRgZCJkXm99hqyeBBgtCn";
+
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
         AppsFlyerConversionListener conversionListener = new AppsFlyerConversionListener() {
             @Override
             public void onConversionDataSuccess(Map<String, Object> conversionData) {
+                flyerConversionData = new HashMap<>(conversionData);
             }
 
             @Override
@@ -52,6 +54,6 @@ public class Application extends android.app.Application {
         };
         AppsFlyerLib.getInstance().init(AF_DEV_KEY, conversionListener, this);
         AppsFlyerLib.getInstance().startTracking(this);
-      
-  }
+
+    }
 }

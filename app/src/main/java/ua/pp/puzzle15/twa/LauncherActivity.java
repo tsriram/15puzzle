@@ -21,14 +21,16 @@ import android.os.Build;
 import android.os.Bundle;
 
 
-    import com.appsflyer.AppsFlyerLib;
+import com.appsflyer.AppsFlyerLib;
+
+import org.json.JSONObject;
+
+import java.util.Map;
 
 
 public class LauncherActivity
         extends com.google.androidbrowserhelper.trusted.LauncherActivity {
-    
 
-    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,16 +49,15 @@ public class LauncherActivity
     @Override
     protected Uri getLaunchingUrl() {
         // Get the original launch Url.
-        Uri uri = super.getLaunchingUrl();
 
-        
-            String appsFlyerId = AppsFlyerLib.getInstance().getAppsFlyerUID(this);
-         uri = uri
-              .buildUpon()
-              .appendQueryParameter("appsflyer_id", appsFlyerId)
-              .build();
-        
+        Map<String, Object> flyerConversionData = ((ua.pp.puzzle15.twa.Application) this.getApplication()).flyerConversionData;
+        JSONObject jsonConversionData = new JSONObject(flyerConversionData);
 
-        return uri;
+        String appsFlyerId = AppsFlyerLib.getInstance().getAppsFlyerUID(this);
+        return super.getLaunchingUrl()
+                .buildUpon()
+                .appendQueryParameter("appsflyer_id", appsFlyerId)
+                .appendQueryParameter("appsflyer_data", jsonConversionData.toString())
+                .build();
     }
 }
